@@ -29,7 +29,7 @@ USER:
 ### Funcionalidades gerais:
 FORMULÁRIOS:
 - **Validação de dados**
-- **Utilização de máscara nos campos**
+- **Utilização de máscara nos campos**<br>
 SEGURANÇA:
 - **Session para segurança dos dados**
 ## Hospedagem
