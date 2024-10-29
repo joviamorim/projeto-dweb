@@ -30,6 +30,7 @@ USER:
 FORMULÁRIOS:
 - **Validação de dados**
 - **Utilização de máscara nos campos**<br>
+
 SEGURANÇA:
 - **Session para segurança dos dados**
 ## Hospedagem
