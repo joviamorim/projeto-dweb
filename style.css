@@ -1,0 +1,15 @@
+.brand-logo{
+    margin-left: 2%;
+}
+
+.container-form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2%;
+}
+
+.form-title{
+    margin-bottom: 6%;
+}
