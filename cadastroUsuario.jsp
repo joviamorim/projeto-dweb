@@ -14,7 +14,7 @@
     <div class="nav-wrapper">
         <a href="index.jsp" class="brand-logo">Natureza Viva</a>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
-            <li><a href="index.jsp">Início</a></li>
+            <li><a href="index.html">Início</a></li>
             <li><a href="saloesDisponiveis.jsp">Salões Disponíveis</a></li>
             <li><a href="login.jsp">Login</a></li>
         </ul>
