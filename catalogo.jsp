@@ -8,9 +8,10 @@
     <title>Salões Disponíveis</title>
     <meta charset="UTF-8">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
     <style>
         .card {
-            height: 450px; 
+            height: 400px; 
             display: flex;
             flex-direction: column;
         }
@@ -28,20 +29,20 @@
     </style>
 </head>
 <body>
-    <nav>
-        <div class="nav-wrapper blue">
-            <a href="#" class="brand-logo center">Salões Disponíveis</a>
-            <ul id="nav-mobile" class="left hide-on-med-and-down">
-                <li><a href="loginUsuario.html">Início</a></li>
-                <li><a href="saloesDisponiveis.jsp" aria-label="Salões Disponíveis">Salões Disponíveis</a></li>
-                <li><a href="agendamentosUsuario.jsp" aria-label="agendamentosUsuario">Meus Agendamentos</a></li>
-                <li><a href="logout.jsp">Logout</a></li>
+    <nav class="blue darken-3" role="navigation" aria-label="Menu principal">
+        <div class="nav-wrapper">
+            <a href="index.html" class="brand-logo" aria-label="Catálogo de Espaços">Catálogo de Espaços</a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li><a href="index.html" aria-label="Início">Início</a></li>
+                <li><a href="catalogo.jsp" aria-label="Catálogo">Catálogo</a></li>
+                <li><a href="cadastroUsuario.jsp" aria-label="Cadastro de Usuário">Cadastre-se</a></li>
+                <li><a href="login.jsp" aria-label="Login">Login</a></li>
             </ul>
         </div>
     </nav>
 
     <div class="container">
-        <h4>Escolha um salão para agendar</h4>
+        <h4 style="margin-bottom: 2rem; margin-top: 2rem;">Veja nossos espaços disponíveis</h4>
         <div class="row">
             <% 
                 Connection conn = (Connection) pageContext.getAttribute("conexao");
@@ -70,9 +71,6 @@
                                         <span class="card-title"><%= nome %></span>
                                         <p><strong>Capacidade:</strong> <%= capacidade %> pessoas</p>
                                         <p><strong>Descrição:</strong> <%= descricao %></p>
-                                    </div>
-                                    <div class="card-action">
-                                        <a href="agendarSalao.jsp?id=<%= rs.getInt("id") %>" class="btn blue">Agendar</a>
                                     </div>
                                 </div>
                             </div>

@@ -9,35 +9,20 @@
     align-items: center;
     margin-top: 2%;
 }
-
-.form-title{
-    margin-bottom: 6%;
-}
-
 body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
     margin: 0;
 }
-
-
-.section {
-    margin-bottom: 20px; 
+.form-title{
+    margin-bottom: 6%;
 }
 
-
-.carousel-custom {
-    height: 400px;
-    margin-top: 0; 
-}
 .carousel-custom .carousel-item img {
     height: 100%;
     object-fit: cover;
-}
-
-.btn-section {
-    margin-bottom: 70px; 
+    width: 100%;
 }
 
 .page-footer {

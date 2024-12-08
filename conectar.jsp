@@ -6,4 +6,5 @@
         "root", 
         ""
     );
+    pageContext.setAttribute("conexao", conexao);
 %>

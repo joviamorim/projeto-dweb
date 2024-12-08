@@ -12,12 +12,11 @@
 
 <nav class="blue darken-3">
     <div class="nav-wrapper">
-        <a href="index.jsp" class="brand-logo">Natureza Viva</a>
+        <a href="index.html" class="brand-logo">Natureza Viva</a>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
             <li><a href="index.html">Início</a></li>
-            <li><a href="saloesDisponiveis.jsp">Salões Disponíveis</a></li>
-            <li><a href="login.jsp">Login</a></li>
-        </ul>
+            <li><a href="cadastroUsuario.jsp" aria-label="Cadastro de Usuário">Cadastre-se</a></li>
+            <li><a href="login.jsp" aria-label="Login">Login</a></li>
     </div>
 </nav>
 
