@@ -13,6 +13,7 @@
 .form-title{
     margin-bottom: 6%;
 }
+
 body {
     display: flex;
     flex-direction: column;
@@ -20,23 +21,27 @@ body {
     margin: 0;
 }
 
-.btn-section {
-    margin-bottom: 50px;
+
+.section {
+    margin-bottom: 20px; 
 }
 
-.btn-large blue darken-3 waves-effect waves-light {
-    margin-bottom: 4rem;
-}
 
-.page-footer {
-    margin-top: 5rem;
-    padding-top: 20px;
-    padding-bottom: 20px;
-}
 .carousel-custom {
     height: 400px;
+    margin-top: 0; 
 }
 .carousel-custom .carousel-item img {
     height: 100%;
     object-fit: cover;
+}
+
+.btn-section {
+    margin-bottom: 70px; 
+}
+
+.page-footer {
+    margin-top: auto;
+    padding-top: 20px;
+    padding-bottom: 20px;
 }
