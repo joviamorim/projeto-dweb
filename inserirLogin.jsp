@@ -13,7 +13,7 @@
         // use este treço para implementar a sessão
         //
         //
-        response.sendRedirect("home.html");
+        response.sendRedirect("index.html");
     } else {
         out.println("<script>alert('Usuário ou senha incorretos!');window.location='login.jsp';</script>");
     }
