@@ -13,7 +13,6 @@
 .form-title{
     margin-bottom: 6%;
 }
-/* Ajuste geral do layout */
 body {
     display: flex;
     flex-direction: column;
@@ -21,19 +20,15 @@ body {
     margin: 0;
 }
 
-/* Espaçamento maior entre botão e footer */
 .btn-section {
     margin-bottom: 50px;
 }
 
-/* Estilização do footer */
 .page-footer {
-    margin-top: auto;
+    margin-top: 5rem;
     padding-top: 20px;
     padding-bottom: 20px;
 }
-
-/* Carrossel maior */
 .carousel-custom {
     height: 400px;
 }
