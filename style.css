@@ -24,6 +24,10 @@ body {
     margin-bottom: 50px;
 }
 
+.btn-large blue darken-3 waves-effect waves-light {
+    margin-bottom: 4rem;
+}
+
 .page-footer {
     margin-top: 5rem;
     padding-top: 20px;
