@@ -13,13 +13,11 @@
 
     if (rs.next()) {
 
+
         if(email!=null && senha!=null && !email.isEmpty() && !senha.isEmpty()){
             session.setAttribute("usuario", email);
             response.sendRedirect("home.jsp");
         }
-    
-       
-
     } else {
         out.println("<script>alert('Usuário ou senha incorretos!');window.location='login.jsp';</script>");
     }
