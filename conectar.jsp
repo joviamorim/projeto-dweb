@@ -1,3 +1,5 @@
+
+
 <%@ page import="java.sql.*" %>
 <%
   Class.forName("com.mysql.jdbc.Driver");
@@ -6,5 +8,5 @@
         "root", 
         ""
     );
-    pageContext.setAttribute("conexao", conexao);
+
 %>
