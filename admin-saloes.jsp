@@ -14,7 +14,7 @@
         <div class="nav-wrapper blue">
             <a href="#" class="brand-logo center">Gerenciar Salões</a>
             <ul id="nav-mobile" class="left hide-on-med-and-down">
-                <li><a href="loginAdmin.jsp">Perfil</a></li>
+                <li><a href="LoginAdmin.jsp">Perfil</a></li>
                 <li><a href="admin-agendamentos.jsp">Gerenciar Agendamentos</a></li>
                 <li><a href="logout.jsp">Logout</a></li>
             </ul>
