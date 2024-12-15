@@ -22,20 +22,28 @@
             height: 200px; 
             object-fit: cover; 
         }
-
         .card-action {
             margin-top: auto; 
         }
+
+        .modal-content h5 {
+            margin-bottom: 1rem; 
+        }
+
+        .input-field {
+            margin-top: 20px; 
+        }
+
     </style>
 </head>
 <body>
     <nav class="blue darken-3" role="navigation" aria-label="Menu principal">
         <div class="nav-wrapper">
-            <a href="index.jsp" class="brand-logo" aria-label="Natureza Viva - Página Inicial">Natureza Viva</a>
+            <a href="loginUsuario.html" class="brand-logo" aria-label="Natureza Viva - Página Inicial">Natureza Viva</a>
             <ul id="nav-mobile" class="right hide-on-med-and-down">
                 <li><a href="loginUsuario.html" aria-label="Início">Início</a></li>
                 <li><a href="saloesDisponiveis.jsp" aria-label="Salões Disponíveis">Salões Disponíveis</a></li>
-                <li><a href="agendamentosUsuario.jsp" aria-label="agendamentosUsuario">Meus Agendamentos</a></li>
+                <li><a href="agendamentosUsuario.jsp" aria-label="Meus Agendamentos">Meus Agendamentos</a></li>
                 <li><a href="logout.jsp">Logout</a></li>
             </ul>
         </div>
@@ -73,10 +81,32 @@
                                         <p><strong>Descrição:</strong> <%= descricao %></p>
                                     </div>
                                     <div class="card-action">
-                                        <a href="agendarSalao.jsp?id=<%= rs.getInt("id") %>" class="btn blue">Agendar</a>
+                                        <a href="#modalAgendar<%= rs.getInt("id") %>" class="btn blue modal-trigger">Agendar</a>
                                     </div>
                                 </div>
                             </div>
+
+                            <div id="modalAgendar<%= rs.getInt("id") %>" class="modal">
+                                <div class="modal-content">
+                                    <h5 style="padding-bottom: 1.5rem;">Agendar o Salão: <%= nome %></h5>
+                                    <form action="agendarSalao.jsp" method="post">
+                                        <input type="hidden" name="espacoId" value="<%= rs.getInt("id") %>">
+                                        
+                                        <div class="input-field">
+                                            <label for="data_inicio" class="active">Data Inicial</label>
+                                            <input type="datetime-local" id="data_inicio" name="data_inicio" required>
+                                        </div>
+
+                                        <div class="input-field">
+                                            <label for="data_fim" class="active">Data Final</label>
+                                            <input type="datetime-local" id="data_fim" name="data_fim" required>
+                                        </div>
+                                        
+                                        <button type="submit" class="btn blue">Confirmar Agendamento</button>
+                                    </form>
+                                </div>
+                            </div>
+
                 <% 
                         }
                     }
@@ -94,6 +124,7 @@
             %>
         </div>
     </div>
+
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script>
