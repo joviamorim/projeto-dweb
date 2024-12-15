@@ -6,10 +6,11 @@
     String dataInicio = request.getParameter("data_inicio");
     String dataFim = request.getParameter("data_fim");
     
-    int usuarioId = 1; 
+    int usuarioId = 1;  
     
-    if (espacoId == null || espacoId.isEmpty()) {
-        out.println("<h3>Erro: ID do espaço não fornecido!</h3>");
+    if (espacoId == null || espacoId.isEmpty() || dataInicio == null || dataFim == null) {
+        out.println("<h3>Erro: Parâmetros faltando!</h3>");
+        out.println("<a href='saloesDisponiveis.jsp' class='btn blue'>Voltar para Salões Disponíveis</a>");
     } else {
         Connection conn = (Connection) pageContext.getAttribute("conexao");
         PreparedStatement stmt = null;
@@ -17,6 +18,7 @@
         try {
             if (conn == null) {
                 out.println("<h3>Erro na conexão com o banco de dados</h3>");
+                out.println("<a href='saloesDisponiveis.jsp' class='btn blue'>Voltar para Salões Disponíveis</a>");
             } else {
                 String sql = "INSERT INTO agendamento (usuario_id, espaco_id, data_inicio, data_fim, status) VALUES (?, ?, ?, ?, 'PENDENTE')";
                 stmt = conn.prepareStatement(sql);
@@ -28,13 +30,16 @@
                 int rowsAffected = stmt.executeUpdate();
                 if (rowsAffected > 0) {
                     out.println("<h3>Agendamento realizado com sucesso!</h3>");
+                    out.println("<a href='agendamentosUsuario.jsp' class='btn blue'>Visualizar Meus Agendamentos</a>");
                 } else {
                     out.println("<h3>Erro ao realizar o agendamento.</h3>");
+                    out.println("<a href='saloesDisponiveis.jsp' class='btn blue'>Voltar para Salões Disponíveis</a>");
                 }
             }
         } catch (SQLException e) {
             e.printStackTrace();
             out.println("<h3>Erro ao processar agendamento: " + e.getMessage() + "</h3>");
+            out.println("<a href='saloesDisponiveis.jsp' class='btn blue'>Voltar para Salões Disponíveis</a>");
         } finally {
             try {
                 if (stmt != null) stmt.close();
