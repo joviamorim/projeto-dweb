@@ -19,21 +19,6 @@
 
     <div class="container">
         <h4>Agendamentos</h4>
-        <div class="row">
-            <form class="col s12">
-                <div class="input-field col s6">
-                    <input type="text" id="searchEspaco">
-                    <label for="searchEspaco">Filtrar por Espaço</label>
-                </div>
-                <div class="input-field col s6">
-                    <input type="text" class="datepicker" id="searchData">
-                    <label for="searchData">Filtrar por Data</label>
-                </div>
-                <div class="col s12">
-                    <button class="btn blue" type="submit">Filtrar</button>
-                </div>
-            </form>
-        </div>
         <table class="striped responsive-table">
             <thead>
                 <tr>

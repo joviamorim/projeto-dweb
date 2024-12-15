@@ -8,6 +8,7 @@
     <title>Salões Disponíveis</title>
     <meta charset="UTF-8">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
     <style>
         .card {
             height: 450px; 
@@ -28,11 +29,11 @@
     </style>
 </head>
 <body>
-    <nav>
-        <div class="nav-wrapper blue">
-            <a href="#" class="brand-logo center">Salões Disponíveis</a>
-            <ul id="nav-mobile" class="left hide-on-med-and-down">
-                <li><a href="loginUsuario.html">Início</a></li>
+    <nav class="blue darken-3" role="navigation" aria-label="Menu principal">
+        <div class="nav-wrapper">
+            <a href="index.jsp" class="brand-logo" aria-label="Natureza Viva - Página Inicial">Natureza Viva</a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li><a href="loginUsuario.html" aria-label="Início">Início</a></li>
                 <li><a href="saloesDisponiveis.jsp" aria-label="Salões Disponíveis">Salões Disponíveis</a></li>
                 <li><a href="agendamentosUsuario.jsp" aria-label="agendamentosUsuario">Meus Agendamentos</a></li>
                 <li><a href="logout.jsp">Logout</a></li>
