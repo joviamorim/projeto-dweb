@@ -35,26 +35,26 @@
         }
 
         .error-message {
-            background-color: #f8d7da; /* Cor de fundo suave para erro */
-            color: #721c24; /* Cor da fonte para um contraste maior */
-            border-left: 5px solid #dc3545; /* Borda vermelha para destacar */
+            background-color: #f8d7da;
+            color: #721c24;
+            border-left: 5px solid #dc3545;
             padding: 15px;
             margin-bottom: 20px;
-            border-radius: 5px; /* Borda arredondada */
+            border-radius: 5px; 
             font-size: 1.2rem;
-            font-family: Arial, sans-serif; /* Fonte mais moderna */
+            font-family: Arial, sans-serif; 
             display: flex;
             align-items: center;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
         }
 
         .error-message i {
-            margin-right: 10px; /* Espaço entre o ícone e a mensagem */
-            font-size: 1.5rem; /* Tamanho maior para o ícone */
+            margin-right: 10px; 
+            font-size: 1.5rem;
         }
 
         .error-message strong {
-            font-weight: bold; /* Destacar a parte importante da mensagem */
+            font-weight: bold; 
         }
     </style>
 </head>
