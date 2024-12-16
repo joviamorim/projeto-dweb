@@ -66,7 +66,7 @@
 <body>
     <nav class="blue darken-3" role="navigation" aria-label="Menu principal">
         <div class="nav-wrapper">
-            <a href="loginUsuario.html" class="brand-logo" aria-label="Natureza Viva - Página Inicial">Natureza Viva</a>
+            <a href="loginUsuario.jsp" class="brand-logo" aria-label="Natureza Viva - Página Inicial">Natureza Viva</a>
             <ul id="nav-mobile" class="right hide-on-med-and-down">
                 <li><a href="loginUsuario.jsp" aria-label="Início">Início</a></li>
                 <li><a href="saloesDisponiveis.jsp" aria-label="Salões Disponíveis">Salões Disponíveis</a></li>
