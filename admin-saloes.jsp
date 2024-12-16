@@ -8,13 +8,15 @@
     <title>Gerenciamento de Salões</title>
     <meta charset="UTF-8">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <nav>
         <div class="nav-wrapper blue">
-            <a href="#" class="brand-logo center">Gerenciar Salões</a>
-            <ul id="nav-mobile" class="left hide-on-med-and-down">
+            <a href="#" class="brand-logo">Gerenciar Salões</a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
                 <li><a href="loginAdmin.jsp">Perfil</a></li>
+                <li><a href="admin-saloes.jsp">Gerenciar Salões</a></li>
                 <li><a href="admin-agendamentos.jsp">Gerenciar Agendamentos</a></li>
                 <li><a href="logout.jsp">Logout</a></li>
             </ul>

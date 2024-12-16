@@ -34,6 +34,28 @@
             margin-top: 20px; 
         }
 
+        .error-message {
+            background-color: #f8d7da; /* Cor de fundo suave para erro */
+            color: #721c24; /* Cor da fonte para um contraste maior */
+            border-left: 5px solid #dc3545; /* Borda vermelha para destacar */
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 5px; /* Borda arredondada */
+            font-size: 1.2rem;
+            font-family: Arial, sans-serif; /* Fonte mais moderna */
+            display: flex;
+            align-items: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+        }
+
+        .error-message i {
+            margin-right: 10px; /* Espaço entre o ícone e a mensagem */
+            font-size: 1.5rem; /* Tamanho maior para o ícone */
+        }
+
+        .error-message strong {
+            font-weight: bold; /* Destacar a parte importante da mensagem */
+        }
     </style>
 </head>
 <body>
@@ -50,19 +72,64 @@
     </nav>
 
     <div class="container">
+        <% 
+            String errorMessage = "";
+
+            Connection conn = (Connection) pageContext.getAttribute("conexao");
+            PreparedStatement stmt = null;
+            ResultSet rs = null;
+            int usuarioId = 2; 
+            boolean agendamentoBloqueado = false;
+
+            try {
+                String sqlCheck = "SELECT COUNT(*) FROM agendamento WHERE usuario_id = ? AND status = 'BLOQUEADO'";
+                stmt = conn.prepareStatement(sqlCheck);
+                stmt.setInt(1, usuarioId);
+                rs = stmt.executeQuery();
+
+                if (rs.next() && rs.getInt(1) > 0) {
+                    agendamentoBloqueado = true;
+                    errorMessage = "Você tem um agendamento bloqueado, portanto não pode realizar um novo agendamento. Por favor, contate o administrador.";
+                }
+
+                if (conn == null) {
+                    out.println("<h3>Erro na conexão com o banco de dados</h3>");
+                } else {
+                    String sqlSalas = "SELECT * FROM espaco";
+                    stmt = conn.prepareStatement(sqlSalas);
+                    rs = stmt.executeQuery();
+                    if (!rs.next()) {
+                        errorMessage = "Nenhum salão disponível.";
+                    }
+                    rs.beforeFirst();  
+                }
+
+            } catch (SQLException e) {
+                e.printStackTrace();
+                errorMessage = "Erro ao carregar salões: " + e.getMessage();
+            } finally {
+                try {
+                    if (rs != null) rs.close();
+                    if (stmt != null) stmt.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+        %>
+
+        <% if (!errorMessage.isEmpty()) { %>
+            <div class="error-message">
+                <strong/><%= errorMessage %>
+            </div>
+        <% } %>
+
         <h4>Escolha um salão para agendar</h4>
         <div class="row">
             <% 
-                Connection conn = (Connection) pageContext.getAttribute("conexao");
-                PreparedStatement stmt = null;
-                ResultSet rs = null;
-
                 try {
-                    if (conn == null) {
-                        out.println("<h3>Erro na conexão com o banco de dados</h3>");
-                    } else {
-                        String sql = "SELECT * FROM espaco";
-                        stmt = conn.prepareStatement(sql);
+                    if (conn != null) {
+                        String sqlSalas = "SELECT * FROM espaco";
+                        stmt = conn.prepareStatement(sqlSalas);
                         rs = stmt.executeQuery();
 
                         while (rs.next()) {
@@ -81,7 +148,11 @@
                                         <p><strong>Descrição:</strong> <%= descricao %></p>
                                     </div>
                                     <div class="card-action">
-                                        <a href="#modalAgendar<%= rs.getInt("id") %>" class="btn blue modal-trigger">Agendar</a>
+                                        <% if (agendamentoBloqueado) { %>
+                                            <a href="#" class="btn blue disabled">Agendar</a>
+                                        <% } else { %>
+                                            <a href="#modalAgendar<%= rs.getInt("id") %>" class="btn blue modal-trigger">Agendar</a>
+                                        <% } %>
                                     </div>
                                 </div>
                             </div>
@@ -113,18 +184,10 @@
                 } catch (SQLException e) {
                     e.printStackTrace();
                     out.println("<h3>Erro ao carregar salões: " + e.getMessage() + "</h3>");
-                } finally {
-                    try {
-                        if (rs != null) rs.close();
-                        if (stmt != null) stmt.close();
-                    } catch (SQLException e) {
-                        e.printStackTrace();
-                    }
                 }
             %>
         </div>
     </div>
-
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script>

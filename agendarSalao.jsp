@@ -6,7 +6,7 @@
     String dataInicio = request.getParameter("data_inicio");
     String dataFim = request.getParameter("data_fim");
     
-    int usuarioId = 1;  
+    int usuarioId = 2;  
     
     if (espacoId == null || espacoId.isEmpty() || dataInicio == null || dataFim == null) {
         out.println("<h3>Erro: Parâmetros faltando!</h3>");
