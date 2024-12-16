@@ -32,7 +32,7 @@
 
                     // Verifica se ambos os registros foram inseridos
                     if (loginResult > 0) {
-                        out.println("<script>alert('Cadastro realizado com sucesso!');window.location='loginUsuario.jsp';</script>");
+                        out.println("<script>alert('Cadastro realizado com sucesso!');window.location='login.jsp';</script>");
                     } else {
                         out.println("<script>alert('Erro ao gravar o cadastro.');window.location='cadastroUsuario.jsp';</script>");
                     }

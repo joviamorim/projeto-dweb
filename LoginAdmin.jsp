@@ -1,3 +1,9 @@
+<%
+    String tipo = (String) session.getAttribute("tipo");
+    if(tipo == null || !tipo.equals("ADMIN")) {
+        response.sendRedirect("redirecionamento.jsp");
+    }
+%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>

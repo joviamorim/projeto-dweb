@@ -1,3 +1,10 @@
+<%
+    String tipo = (String) session.getAttribute("tipo");
+    if(tipo == null || !tipo.equals("USER")) {
+        response.sendRedirect("redirecionamento.jsp");
+    }
+%>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
