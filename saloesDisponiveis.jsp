@@ -1,7 +1,12 @@
 <%@page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@page import="java.sql.*, javax.servlet.*, javax.servlet.http.*"%>
 <%@include file="conectar.jsp"%>
-
+<%
+    String tipo = (String) session.getAttribute("tipo");
+    if(tipo == null || !tipo.equals("USER")) {
+        response.sendRedirect("redirecionamento.jsp");
+    }
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -63,7 +68,7 @@
         <div class="nav-wrapper">
             <a href="loginUsuario.html" class="brand-logo" aria-label="Natureza Viva - Página Inicial">Natureza Viva</a>
             <ul id="nav-mobile" class="right hide-on-med-and-down">
-                <li><a href="loginUsuario.html" aria-label="Início">Início</a></li>
+                <li><a href="loginUsuario.jsp" aria-label="Início">Início</a></li>
                 <li><a href="saloesDisponiveis.jsp" aria-label="Salões Disponíveis">Salões Disponíveis</a></li>
                 <li><a href="agendamentosUsuario.jsp" aria-label="Meus Agendamentos">Meus Agendamentos</a></li>
                 <li><a href="logout.jsp">Logout</a></li>
@@ -78,13 +83,13 @@
             Connection conn = (Connection) pageContext.getAttribute("conexao");
             PreparedStatement stmt = null;
             ResultSet rs = null;
-            int usuarioId = 1; 
+            String usuarioId = (String) session.getAttribute("id"); 
             boolean agendamentoBloqueado = false;
 
             try {
                 String sqlCheck = "SELECT COUNT(*) FROM agendamento WHERE usuario_id = ? AND status = 'BLOQUEADO'";
                 stmt = conn.prepareStatement(sqlCheck);
-                stmt.setInt(1, usuarioId);
+                stmt.setString(1, usuarioId);
                 rs = stmt.executeQuery();
 
                 if (rs.next() && rs.getInt(1) > 0) {
