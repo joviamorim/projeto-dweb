@@ -78,7 +78,7 @@
             Connection conn = (Connection) pageContext.getAttribute("conexao");
             PreparedStatement stmt = null;
             ResultSet rs = null;
-            int usuarioId = 2; 
+            int usuarioId = 1; 
             boolean agendamentoBloqueado = false;
 
             try {
