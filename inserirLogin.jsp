@@ -18,7 +18,7 @@
         session.setAttribute("tipo", tipo);
 
         if(tipo.equals("ADMIN")) {
-            response.sendRedirect("loginAdmin.jsp");
+            response.sendRedirect("LoginAdmin.jsp");
         } else {
             response.sendRedirect("loginUsuario.jsp");
         }
