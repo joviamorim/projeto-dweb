@@ -1,3 +1,4 @@
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%
     String tipo = (String) session.getAttribute("tipo");
     if(tipo == null || !tipo.equals("USER")) {

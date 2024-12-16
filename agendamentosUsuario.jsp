@@ -1,7 +1,12 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="java.sql.*, javax.servlet.*, javax.servlet.http.*"%>
 <%@include file="conectar.jsp"%>
-
+<%
+    String tipo = (String) session.getAttribute("tipo");
+    if(tipo == null || !tipo.equals("USER")) {
+        response.sendRedirect("redirecionamento.jsp");
+    }
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -32,7 +37,7 @@
         <div class="nav-wrapper">
             <a href="loginUsuario.html" class="brand-logo" aria-label="Catálogo de Espaços">Natureza Viva</a>
             <ul id="nav-mobile" class="right hide-on-med-and-down">
-                <li><a href="loginUsuario.html" aria-label="Início">Início</a></li>
+                <li><a href="loginUsuario.jsp" aria-label="Início">Início</a></li>
                 <li><a href="saloesDisponiveis.jsp" aria-label="Salões Disponíveis">Salões Disponíveis</a></li>
                 <li><a href="agendamentosUsuario.jsp" aria-label="Meus Agendamentos">Meus Agendamentos</a></li>
                 <li><a href="logout.jsp">Logout</a></li>
@@ -45,7 +50,7 @@
 
         <div class="row">
             <%
-                int usuarioId = 1;
+                String usuarioId = (String) session.getAttribute("id");
 
                 Connection conn = (Connection) pageContext.getAttribute("conexao");
                 PreparedStatement stmt = null;
@@ -61,7 +66,7 @@
                                                 + "INNER JOIN espaco e ON a.espaco_id = e.id "
                                                 + "WHERE a.usuario_id = ?";
                         stmt = conn.prepareStatement(sqlAgendamentos);
-                        stmt.setInt(1, usuarioId); 
+                        stmt.setString(1, usuarioId); 
                         rsAgendamentos = stmt.executeQuery();
 
                         while (rsAgendamentos.next()) {

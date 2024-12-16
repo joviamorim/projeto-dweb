@@ -6,7 +6,7 @@
     String dataInicio = request.getParameter("data_inicio");
     String dataFim = request.getParameter("data_fim");
     
-    int usuarioId = 2;  
+    String usuarioId = (String) session.getAttribute("id");  
     
     if (espacoId == null || espacoId.isEmpty() || dataInicio == null || dataFim == null) {
         out.println("<h3>Erro: Parâmetros faltando!</h3>");
@@ -22,7 +22,7 @@
             } else {
                 String sql = "INSERT INTO agendamento (usuario_id, espaco_id, data_inicio, data_fim, status) VALUES (?, ?, ?, ?, 'PENDENTE')";
                 stmt = conn.prepareStatement(sql);
-                stmt.setInt(1, usuarioId);  
+                stmt.setString(1, usuarioId);  
                 stmt.setInt(2, Integer.parseInt(espacoId));  
                 stmt.setString(3, dataInicio);
                 stmt.setString(4, dataFim);
