@@ -23,7 +23,7 @@
 <div class="container">
     <h3>Login</h3>
     
-    <form action="autenticarUsuario.jsp" method="post" class="col s12">
+    <form action="inserirLogin.jsp" method="post" class="col s12">
         
         <div class="input-field col s12">
             <input id="email" name="email" type="email" class="validate" required>
